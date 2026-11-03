@@ -16,6 +16,9 @@ export function Footer() {
               <NavLink to="/usluge">Usluge</NavLink>
             </li>
             <li>
+              <NavLink to="/vozila">Vozila</NavLink>
+            </li>
+            <li>
               <NavLink to="/o-nama">O nama</NavLink>
             </li>
             <li>

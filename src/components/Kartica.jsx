@@ -16,7 +16,7 @@ const Kartica = ({ podatci, putanja, varijanta = "osnovna" }) => {
         {podatci.naslov && <h3>{podatci.naslov}</h3>}
         {podatci.opis && <p>{podatci.opis}</p>}
         {podatci.cijena && (
-          <p className="cijena-kartica">Okvirna cijena: {podatci.cijena} $</p>
+          <p className="cijena-kartice">Okvirna cijena: {podatci.cijena} $</p>
         )}
 
         {putanja && (

@@ -133,7 +133,7 @@ header {
   background-color: currentColor;
 }
 
-@media (max-width: 599px) {
+@media (max-width: 899px) {
   .header-wrapper {
     flex-wrap: wrap;
   }
@@ -357,13 +357,14 @@ footer {
   text-decoration: none;
 }
 
-@media (max-width: 599px) {
+@media (max-width: 799px) {
   .footer-wrapper {
     flex-direction: column;
   }
 }
 
-.kartica-usluga {
+.kartica-usluga,
+.kartica-vozila {
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -385,7 +386,8 @@ footer {
   object-fit: cover;
 }
 
-.kartica-usluga .kartica-sadrzaj {
+.kartica-usluga .kartica-sadrzaj,
+.kartica-vozila .kartica-sadrzaj {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -393,6 +395,7 @@ footer {
 }
 
 .kartica-usluga .oznaka,
+.kartica-vozila .oznaka,
 .kontakt .oznaka {
   background: var(--rub);
   align-self: flex-start;
@@ -403,30 +406,33 @@ footer {
   display: inline-block;
 }
 
-.kartica-usluga h3 {
+.kartica-usluga h3,
+.kartica-vozila h3 {
   font-size: 1.4rem;
   margin-bottom: 10px;
 }
 
-.cijena-kartica {
+.cijena-kartice {
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
 
 .oznaka,
 .cijena-usluge,
-.cijena-kartica {
+.cijena-kartice {
   color: var(--tamna);
   font-weight: bold;
 }
 
-.kartica-usluga .gumb {
+.kartica-usluga .gumb,
+.kartica-vozila .gumb {
   width: 100%;
   text-align: center;
   margin-top: auto;
 }
 
 .detalji-usluge,
+.detalji-vozila,
 .stranica-404 {
   display: flex;
   flex-wrap: wrap;
@@ -456,7 +462,8 @@ footer {
   aspect-ratio: 4 / 3;
 }
 
-.cijena-usluge {
+.cijena-usluge,
+.detalji-vozila .cijena-kartice {
   font-size: 2rem;
   margin-bottom: 10px;
 }
@@ -723,4 +730,77 @@ footer {
 
 .modal-sadrzaj {
   margin-top: 20px;
+}
+
+.zaposlenik-forma {
+  max-width: 380px;
+}
+
+.kartice-vozila {
+  gap: 1rem 2%;
+}
+
+.kartica-vozila {
+  flex: 0 1 32%;
+}
+
+.kartica-vozila .cijena-kartice {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 899px) {
+  .kartica-vozila {
+    flex-basis: 49%;
+  }
+}
+
+@media (max-width: 599px) {
+  .kartica-vozila {
+    flex-basis: 100%;
+  }
+}
+
+.galerija-vozila {
+  flex: 1 1 350px;
+  padding: 20px;
+}
+
+.galerija-slika,
+.galerija-slike img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.galerija-slike img {
+  max-height: 50px;
+}
+
+.galerija-slike {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.galerija-slika {
+  height: 300px;
+}
+
+.galerija-gumb {
+  padding: 0;
+  flex: 1;
+  border: 2px solid var(--rub);
+  border-radius: 5px;
+  background: var(--bijela);
+  cursor: pointer;
+}
+
+.galerija-gumb.odabrana {
+  border: 2px solid var(--tamna);
+}
+
+.detalji-vozila .detalji-sadrzaj,
+.galerija-vozila {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

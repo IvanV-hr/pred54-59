@@ -43,6 +43,11 @@ export function Header() {
                 </NavLink>
               </li>
               <li>
+                <NavLink to="/vozila" onClick={() => setOtvoren(false)}>
+                  Vozila
+                </NavLink>
+              </li>
+              <li>
                 <NavLink to="/o-nama" onClick={() => setOtvoren(false)}>
                   O nama
                 </NavLink>

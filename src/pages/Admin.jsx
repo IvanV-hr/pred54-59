@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { apiRequest } from "../api/api";
 import AdminPanel from "../components/AdminPanel";
+import ZaposlenikForma from "../components/ZaposlenikForma";
 
 const Admin = () => {
   const [zaposlenici, setZaposlenici] = useState([]);
@@ -77,6 +78,21 @@ const Admin = () => {
     }
   }
 
+  async function dodajZaposlenika(podatci) {
+    setGreska("");
+    try {
+      const noviZaposlenik = await apiRequest("/users/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(podatci),
+      });
+
+      setZaposlenici((zaposlenici) => [noviZaposlenik, ...zaposlenici]);
+    } catch {
+      setGreska("Dodavanje korisnika nije uspjelo. Pokušajte ponovno.");
+    }
+  }
+
   return (
     <section className="section">
       <p className="oznaka">Pregled podataka</p>
@@ -100,6 +116,7 @@ const Admin = () => {
           onObrisi={obrisi}
         />
       </div>
+      <ZaposlenikForma onDodajZaposlenika={dodajZaposlenika} />
     </section>
   );
 };

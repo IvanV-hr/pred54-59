@@ -13,6 +13,8 @@ import PotvrdaLayout from "./layouts/PotvrdaLayout.jsx";
 import Potvrda from "./pages/Potvrda.jsx";
 import ONama from "./pages/ONama.jsx";
 import Admin from "./pages/Admin.jsx";
+import Vozila from "./pages/Vozila.jsx";
+import DetaljiVozila from "./pages/DetaljiVozila.jsx";
 
 export default function App() {
   return (
@@ -25,6 +27,8 @@ export default function App() {
           <Route path="/usluge/:id" element={<DetaljiUsluge />} />
           <Route path="/o-nama" element={<ONama />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/vozila" element={<Vozila />} />
+          <Route path="/vozila/:id" element={<DetaljiVozila />} />
         </Route>
         <Route element={<NotFoundLayout />}>
           <Route path="*" element={<NotFound />} />
