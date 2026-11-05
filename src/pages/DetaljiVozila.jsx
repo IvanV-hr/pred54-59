@@ -3,6 +3,7 @@ import { apiRequest } from "../api/api";
 import { useEffect, useState } from "react";
 import NotFound from "./NotFound";
 import GalerijaVozila from "../components/GalerijaVozila";
+import KomentarVozila from "../components/KomentarVozila";
 
 const DetaljiVozila = () => {
   const { id } = useParams();
@@ -42,7 +43,17 @@ const DetaljiVozila = () => {
   return (
     <>
       <GalerijaVozila vozilo={vozilo} />
-      <section className="section">Komentari</section>
+      <section className="section">
+        <h2>Recenzije kupaca</h2>
+        <ul className="komentari">
+          {vozilo.reviews.map((recenzija) => (
+            <KomentarVozila
+              key={recenzija.reviewerEmail}
+              recenzija={recenzija}
+            />
+          ))}
+        </ul>
+      </section>
     </>
   );
 };

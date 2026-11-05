@@ -804,3 +804,80 @@ footer {
   flex-direction: column;
   justify-content: space-between;
 }
+
+.komentari {
+  list-style-type: none;
+  padding: 0;
+}
+
+.recenzija {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.recenzija-avatar {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--tamna);
+  border-radius: 50%;
+  color: var(--bijela);
+  font-weight: bold;
+}
+
+.recenzija-autor,
+.recenzija-ocjena,
+.recenzija-tekst {
+  margin: 0;
+}
+
+.recenzija-autor {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.recenzija-datum {
+  font-size: 0.9rem;
+}
+
+.filteri {
+  margin-bottom: 1rem;
+}
+
+.filteri-polja, .filteri-gumbi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filteri-polja {
+  margin-bottom: 1rem;
+}
+
+.filter-polje {
+  flex: 1 1 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-polje:first-child {
+  flex-basis: 100%;
+}
+
+.filter-polje:first-child input{
+  max-width: none;
+}
+
+.filter-polje input, .filter-polje select {
+  height: 35px;
+}
+
+.filter-polje select {
+  border: 1px solid var(--rub);
+  border-radius: 5px;
+}
