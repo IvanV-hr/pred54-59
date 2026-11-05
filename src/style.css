@@ -848,7 +848,8 @@ footer {
   margin-bottom: 1rem;
 }
 
-.filteri-polja, .filteri-gumbi {
+.filteri-polja,
+.filteri-gumbi {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -869,15 +870,26 @@ footer {
   flex-basis: 100%;
 }
 
-.filter-polje:first-child input{
+.filteri-polja .filter-polje input {
   max-width: none;
 }
 
-.filter-polje input, .filter-polje select {
+.filter-polje input,
+.filter-polje select {
   height: 35px;
 }
 
 .filter-polje select {
   border: 1px solid var(--rub);
   border-radius: 5px;
+}
+
+.filteri-gumbi {
+  justify-content: space-between;
+}
+
+.marke-vozila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }

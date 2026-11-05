@@ -1,6 +1,6 @@
 import { Button } from "./Button";
 
-const FilterVozila = ({ filteri, onPromjeni, onPonisti }) => {
+const FilterVozila = ({ marke, filteri, onPromjeni, onPonisti }) => {
   return (
     <div className="forma filteri">
       <div className="filteri-polja">
@@ -65,6 +65,21 @@ const FilterVozila = ({ filteri, onPromjeni, onPonisti }) => {
         </div>
       </div>
       <div className="filteri-gumbi">
+        <div className="marke-vozila">
+          {marke.map((marka) => (
+            <Button
+              key={marka}
+              name="odabranaMarka"
+              value={marka}
+              className={
+                filteri.odabranaMarka === marka ? "gumb" : "gumb gumb-povratak"
+              }
+              onClick={onPromjeni}
+            >
+              {marka}
+            </Button>
+          ))}
+        </div>
         <Button className="gumb gumb-povratak" onClick={onPonisti}>
           Poništite filtre
         </Button>

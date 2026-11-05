@@ -7,6 +7,7 @@ import FilterVozila from "../components/FilterVozila";
 const pocetniFilteri = {
   pojamPretrage: "",
   cijenaOd: "",
+  odabranaMarka: "Sve",
   cijenaDo: "",
   najmanjaOcjena: "",
   redoslijed: "zadano",
@@ -25,24 +26,35 @@ const Vozila = () => {
 
   const pojamPretrage = filteri.pojamPretrage.trim().toLowerCase();
 
+  const sveMarkeVozila = vozila.map((vozilo) => vozilo.brand);
+
+  const markeVozilaFilter = [
+    "Sve",
+    ...sveMarkeVozila.filter(
+      (marka, index) => sveMarkeVozila.indexOf(marka) === index,
+    ),
+  ];
+
   const filtriranaVozila = vozila.filter(
     (vozilo) =>
       `${vozilo.title} ${vozilo.brand}`.toLowerCase().includes(pojamPretrage) &&
       vozilo.price >= 0 &&
       (filteri.cijenaDo === "" || vozilo.price <= Number(filteri.cijenaDo)) &&
-      vozilo.rating >= Number(filteri.najmanjaOcjena),
+      vozilo.rating >= Number(filteri.najmanjaOcjena) &&
+      (filteri.odabranaMarka === "Sve" ||
+        filteri.odabranaMarka === vozilo.brand),
   );
 
   if (filteri.redoslijed === "najjeftiniji") {
-    filtriranaVozila.sort((a , b)=> a.price - b.price)
+    filtriranaVozila.sort((a, b) => a.price - b.price);
   }
 
   if (filteri.redoslijed === "najskuplji") {
-    filtriranaVozila.sort((a , b)=> b.price - a.price)
+    filtriranaVozila.sort((a, b) => b.price - a.price);
   }
 
   if (filteri.redoslijed === "najboljaOcjena") {
-    filtriranaVozila.sort((a , b)=> b.rating - a.rating)
+    filtriranaVozila.sort((a, b) => b.rating - a.rating);
   }
 
   useEffect(() => {
@@ -78,9 +90,17 @@ const Vozila = () => {
       )}
       <FilterVozila
         filteri={filteri}
+        marke={markeVozilaFilter}
         onPromjeni={promijeniFilter}
         onPonisti={() => setFilteri(pocetniFilteri)}
       />
+      {!ucitavanje && !greska && (
+        <p>
+          {filtriranaVozila.length === 0
+            ? "Nema vozila za odabrane filtere."
+            : `Broj pronađenih vozila za odabrane filtere: ${filtriranaVozila.length}`}
+        </p>
+      )}
       <div className="kartice kartice-vozila">
         {filtriranaVozila.map((vozilo) => (
           <KarticaVozila key={vozilo.id} vozilo={vozilo} />
